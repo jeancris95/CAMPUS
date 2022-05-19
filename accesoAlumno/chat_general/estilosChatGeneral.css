@@ -1,0 +1,33 @@
+.titulo {
+	color: black;
+}
+
+.msg {
+	color: black;
+	font-weight: bold;
+}
+
+.container1{
+	margin-top: 3%;
+	background-color: white;
+	padding-right: 10%;
+	padding-left: 10%;
+	border: #120633 5px solid;
+}
+
+.display-chat {
+	height: 400px;
+	background-color: #00c2cb;
+	margin-bottom: 4%;
+	overflow: auto;
+	padding: 15px;
+}
+
+.message {
+	background-color: #56abf1;
+	color: white;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 3%;
+	border: 2px ridge #000;
+}
