@@ -1,6 +1,10 @@
 <?php
 include_once("./conexion.php");
 include_once("./password.php");
+require './phpmailer/recursos/Exception.php';
+require './phpmailer/recursos/PHPMailer.php';
+require './phpmailer/recursos/SMTP.php';
+include_once("./phpmailer/mail.php"); 
 $conexion=ConectaDB::Singleton();
 $nombre=(isset($_POST['nombre']))?$_POST['nombre']:'';
 $apellido=(isset($_POST['apellido']))?$_POST['apellido']:'';
@@ -17,6 +21,7 @@ switch($opcion){
         $conexion->insertarProfesor($nombre,$apellido,$curso,$asignatura,$correo,$password,$usuario);//password sin hashear
         $conexion->insertarUsuario($nombre,$usuario,$hasheado);
         $conexion->insertarAsignatura($curso,$asignatura);
+        enviar_correo_profesor($correo,$usuario,$password);
         $datos=$conexion->tablaProfesores();
         break;
     case 2:

@@ -22,9 +22,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">  
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="/portada/accesoAdmin/plotly-2.11.1.min.js"></script>  
-    <link rel="stylesheet" href="/portada/accesoAdmin/vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="/portada/accesoAdmin/vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
 
@@ -44,7 +43,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -57,9 +56,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/portada/accesoAdmin/inicio.php">
+                <a class="nav-link" href="Inicio.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Inicio</span></a>
             </li>
 
             <!-- Divider -->
@@ -218,7 +217,7 @@
                                 aria-labelledby="userDropdown">
                       
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/portada/accesoAdmin/cierreSesion.php" >
+                                <a class="dropdown-item" href="./cierreSesion.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -340,7 +339,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <img src="/portada/accesoAdmin/img/CAMPUS.png" width=100 alt="">
+                        <img src="./img/CAMPUS.png" width=100 alt="">
                     </div>
                 </div>
             </footer>

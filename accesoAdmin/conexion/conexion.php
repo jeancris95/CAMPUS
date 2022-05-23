@@ -47,7 +47,7 @@
                  }
             //inserta los profesores en la tabla usuarios
             public function insertarUsuario($name,$usuario,$password){
-                $consulta=$this->conex->prepare("insert into usuarios(name,usuario,password,rol)values (?,?,?,'profesor')");
+                $consulta=$this->conex->prepare("insert into usuarios(name,username,password,rol)values (?,?,?,'profesor')");
                             $consulta->bindParam(1,$name);
                             $consulta->bindParam(2,$usuario);
                             $consulta->bindParam(3,$password);
@@ -86,7 +86,7 @@
                 }
                 //borrar de la tabla usuarios
                 public function borrarUsuario($usuario){
-                    $consulta=$this->conex->prepare("delete from usuarios where usuario=?");
+                    $consulta=$this->conex->prepare("delete from usuarios where username=?");
                     $consulta->bindParam(1,$usuario);
                     $consulta->execute();
                 }

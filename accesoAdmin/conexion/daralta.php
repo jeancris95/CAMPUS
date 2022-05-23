@@ -10,7 +10,7 @@ $dni=(isset($_POST['dni']))?$_POST['dni']:'';
 //me da todo los datos del alumno
 $datos=$conexion->datoscorreo($dni); 
 $conexion->darAlta($alta,$dni);
-enviar_correo($datos[0]['correo'],$datos[0]['usuario']);
+enviar_correo_alumno($datos[0]['correo'],$datos[0]['usuario']);
 $rol="alumno";
 $conexion->aniadirUsuario($datos[0]['nombre'],$datos[0]['usuario'],$datos[0]['password'],$rol);
 ?>

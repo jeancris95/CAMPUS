@@ -215,6 +215,7 @@ if (isset($_SESSION['usuario'])) {
                     </ul>
 
                 </nav>
+
 <div class="m-0 row justify-content-center">
 	<div class="container">
 
@@ -246,10 +247,10 @@ if (isset($_SESSION['usuario'])) {
 
 		</div>
 
-		<form class="form-horizontal" method="post" action="sendMessage.php">
+		<form class="form-horizontal" method="post" id="enviar" >
 			<div class="form-group">
 				<div class="col-sm-9">
-					<textarea name="msg" class="form-control" style="border: ridge 2px #56abf1;color: #000;" placeholder="Ingrese su Mensaje"></textarea>
+					<textarea name="msg" class="form-control" style="border: ridge 2px #56abf1;color: #000;" placeholder="Ingrese su Mensaje" id="mensaje"></textarea>
 				</div>
 				<br>
 				<div class="col-sm-3">
@@ -288,26 +289,11 @@ if (isset($_SESSION['usuario'])) {
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
     <script type="text/javascript" src="../vendor/datatables/datatables.min.js"></script>
-<script>
+    <script src="./envio.js"></script>
+    <script>
 		$(document).ready(function() {
-			// Set trigger and container variables
-			var trigger = $('.container .display-chat '),
-				container = $('#content');
-
-			// Fire on click
-			trigger.on('click', function() {
-				// Set $this for re-use. Set target from data attribute
-				var $this = $(this),
-					target = $this.data('target');
-
-				// Load target page into container
-				container.load(target + '.php');
-
-				// Stop normal link behavior
-				return false;
+                $('#display-chat').scrollTop( $('#display-chat').prop('scrollHeight') ); 
 			});
-			$('#display-chat').scrollTop( $('#display-chat').prop('scrollHeight') ); 
-		});
 	</script>
 </body>
 

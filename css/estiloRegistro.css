@@ -1,0 +1,83 @@
+html{
+    background: url("../background.jpg") no-repeat;
+	background-size: cover;
+    min-height: 100%;
+}
+
+body{
+    background:none;
+    height: 100%;
+}
+
+#registro{
+    background-color: #fff;
+    max-width: 800px;
+    margin: 160px auto 0;
+    padding: 40px;
+    color: #858b8e;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+}
+
+#registro h2{
+    padding-bottom: 20px;
+    margin: 10px 20px;
+    font-size: 24px;
+}
+
+#registro hr{
+    margin-top: 38px;
+    margin-bottom: 54px;
+    margin-left:3px;
+    border: 1px solid #cccccc;
+
+}
+
+#registro .form-group{
+	margin-bottom: 20px;
+    margin-left:20px;
+	width: 30%;
+    float:left;
+    text-align: left;
+}
+
+#registro .form-control{
+    padding: 12px 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+#registro .gender{
+    width: 30%;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#registro .btn{
+    width: 46%;
+    margin: 20px auto 0;
+    display: block;
+    outline: none;
+}
+
+@media screen and (max-width: 800px){
+    #registro .form-group{
+        width: 45%;
+    }
+
+    #registro{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 560px){
+    #registro .form-group{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #registro h2{
+        text-align: center;
+    }
+}

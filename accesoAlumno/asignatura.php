@@ -257,11 +257,8 @@
                   </div>
                 </div>
               </div>
-              </div>
             <!-- End of Main Content -->
-
             </div>
-
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
@@ -283,7 +280,6 @@
 <!-- Custom scripts for all pages-->
 <script src="./js/sb-admin-2.min.js"></script>
 <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
-<script src=""></script>
 </body>
 
 </html>

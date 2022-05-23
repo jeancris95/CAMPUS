@@ -50,7 +50,7 @@
                     }
                 }
                 public function aniadirUsuario($name,$user,$pass,$rol){
-                    $consulta=$this->conex->prepare("insert into usuarios(name,usuario,password,rol)values (?,?,?,?)");
+                    $consulta=$this->conex->prepare("insert into usuarios(name,username,password,rol)values (?,?,?,?)");
                     $consulta->bindParam(1,$name);
                     $consulta->bindParam(2,$user);
                     $consulta->bindParam(3,$pass);

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesion</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <style>
         body{
@@ -105,7 +106,8 @@
             </div>
             <div class="col bg-white p-5 rounded-end">
                 <div class="text-end">
-                        <img src="/portada/img/CAMPUS.png" width="48" alt="">
+                <a href="index.php"><i class="bi bi-arrow-left-square-fill"></i></a>
+                        <img src="./accesoAlumno/img/CAMPUS.png" width="48" alt="">
                 </div>
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
                 <!-- login -->
@@ -156,7 +158,7 @@
                     </d>
 
                     <div class="my-3">
-                        <span>No tienes cuenta ? <a href="./registro.php">Registrate</a></span><br>
+                        <span>No tienes cuenta ? <a href="registro.php">Registrate</a></span><br>
                         <span><a href="recuperarPass.php">Recuperar Password</a></span>
                     </div>
                 </form>

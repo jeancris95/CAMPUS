@@ -18,8 +18,8 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="./plotly-2.11.1.min.js"></script>  
-    <link rel="stylesheet" href="/portada/accesoAdmin/vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="/portada/accesoAdmin/vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
 
@@ -39,7 +39,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -52,9 +52,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/portada/accesoAdmin/inicio.php">
+                <a class="nav-link" href="inicio.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Inicio</span></a>
             </li>
 
             <!-- Divider -->
@@ -75,8 +75,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Registros</h6>
-                        <a class="collapse-item" href="./../UsuariosRegistrados.php">Usuarios Registrados</a>
-                        <a class="collapse-item" href="/portada/accesoAdmin/UsuariosPendientes.php">Usuarios a dar de alta</a>
+                        <a class="collapse-item" href="./UsuariosRegistrados.php">Usuarios Registrados</a>
+                        <a class="collapse-item" href="./UsuariosPendientes.php">Usuarios a dar de alta</a>
                     </div>
                 </div>
             </li>
@@ -213,7 +213,7 @@
                                 aria-labelledby="userDropdown">
                       
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/portada/accesoAdmin/cierreSesion.php" >
+                                <a class="dropdown-item" href="./cierreSesion.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -230,7 +230,7 @@
     <h2>grafica global Usuarios </h2>
     <div class="row">
             <div class="col-sm-12">
-                <div class="panel panel-primary">
+                <div class="panel panel-primary ">
                     <div class="panel panel-body">
                         <div class="row">
                             <div class="col-sm-6">
@@ -243,9 +243,39 @@
         </div>
 </div>
 
-<?php
-    require_once("./vistas/parte_inferior.php");
-?>
+<footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <img src="./img/CAMPUS.png" width=100 alt="">
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
+
+<script type="text/javascript" src="./tablaAlumnosAlta.js"></script>
+</body>
+
+</html>
 <script type="text/javascript">
     $(document).ready(function(){
         $('#cargaBarras').load('./lineal.php');
