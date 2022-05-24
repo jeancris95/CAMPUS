@@ -32,6 +32,16 @@
                                     $consulta->bindParam(3,$archivo);
                                     $consulta ->execute();
                  }
+                 public function insertarArchivosProfesor($curso,$titulo,$archivo){
+                    $consulta=$this->conex->prepare("insert into archivos_profesores(curso,titulo,archivo)
+                                                    values (?,?,?)");
+                                $consulta->bindParam(1,$curso);
+                                $consulta->bindParam(2,$titulo);
+                                $consulta->bindParam(3,$archivo);
+                                $consulta ->execute();
+             }
+
+
                  public function consultarID($nombre,$titulo,$archivo){
                     $consulta=$this->conex->prepare("select user_id from archivos where name=? and titulo=? and archivo=?");
                     $consulta->bindParam(1,$nombre);
@@ -44,11 +54,39 @@
                         return false;
                     }
                  }
+                 public function consultarIDProfe($titulo,$archivo){
+                    $consulta=$this->conex->prepare("select id_archivo from archivos_profesores where titulo=? and archivo=?");
+                    $consulta->bindParam(1,$titulo);
+                    $consulta->bindParam(2,$archivo);
+                    if( $consulta->execute()){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
+                 }
 
                  public function eliminarFichero($id){
                     $consulta=$this->conex->prepare("delete from archivos where user_id=?");
                     $consulta->bindParam(1,$id);
                      $consulta->execute();
+                 }
+                 public function eliminarFicheroProfe($id){
+                    $consulta=$this->conex->prepare("delete from archivos_profesores where id_archivo=?");
+                    $consulta->bindParam(1,$id);
+                     $consulta->execute();
+                 }
+
+                 public function consultarCurso($nombre,$apellido){
+                    $consulta=$this->conex->prepare("select curso_imparte from profesores where nombre=? and apellido=?");
+                    $consulta->bindParam(1,$nombre);
+                    $consulta->bindParam(2,$apellido);
+                    if( $consulta->execute()){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
                  }
             }
 ?>

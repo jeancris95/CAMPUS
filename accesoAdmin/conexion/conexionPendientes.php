@@ -57,5 +57,24 @@
                     $consulta->bindParam(4,$rol);
                     $consulta ->execute();
                 }
+                public function consultaCurso($curso){
+                    $consulta=$this->conex->prepare("select nombre,apellido from profesores where upper(curso_imparte)=?");
+                    $cursoM=strtoupper($curso);
+                    $consulta->bindParam(1,$cursoM);
+                    if( $consulta->execute()){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
             }
+            public function insertarAlumno($nombreCurso,$nombre,$alumno){
+                $consulta=$this->conex->prepare("insert into cursos(nombre_curso,profesor_imparte,alumno)values (?,?,?)");
+                $consulta->bindParam(1,$nombreCurso);
+                $consulta->bindParam(2,$nombre);
+                $consulta->bindParam(3,$alumno);
+                $consulta ->execute();
+            }
+     }
+
 ?>

@@ -56,3 +56,9 @@ ALTER TABLE `usuarios`
   ALTER TABLE `usuarios`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+ create table archivos_profesores (id_archivo int AUTO_INCREMENT,
+ curso varchar(25),
+ asignatura varchar(25),
+ titulo varchar(25),
+ PRIMARY KEY(id_archivo));

@@ -1,0 +1,17 @@
+<?php
+    include_once("../conexiones/conexion.php");
+    $conexion=ConectaDB::singleton();
+    if(isset($_POST['titulo'])&&isset($_POST['archivo'])){
+    $titulo=(isset($_POST['titulo']))?$_POST['titulo']:'';
+    $archivo=(isset($_POST['archivo']))?$_POST['archivo']:'';
+    $cons=$conexion->consultarIDProfe($titulo,$archivo);
+    $id=$cons[0]['id_archivo'];
+    $conexion->eliminarFicheroProfe($id); 
+    }
+    if(isset($_GET['archivo_desc'])){
+        $ruta="../archivosSubidos/";
+        $path=$ruta.$_GET['archivo_desc'];
+        $type="";
+        $archivo=$_GET['archivo_desc'];
+    }
+?>

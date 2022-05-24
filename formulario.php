@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesion</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+   <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
     <style>
         body{
             background:#641c34;
@@ -77,11 +77,7 @@
                 }
             }
         }
-        if ($_SERVER['REQUEST_METHOD'] != "GET" and empty($errores)) {
-               /*  $user="jean";
-                $password=Password::hash("Nohay2sin3");
-                $rol="administrador";
-                $conexion->creacionAdmin($user,$password,$rol); */
+        if ($_SERVER['REQUEST_METHOD'] != "GET" and empty($errores)) { 
                 $id=$conexion->id($usuario);
                 switch($roll){
                     case "administrador":
@@ -96,6 +92,11 @@
                         $_SESSION['alumno']=$roll;
                         header("location:./accesoAlumno/inicio.php");
                     break;
+                    case "profesor":
+                        $_SESSION['usuario']=$usuario;
+                        $_SESSION['user_id']=$id[0]["user_id"];
+                        $_SESSION['profesor']=$roll;
+                        header("location:./accesoProfesor/inicio.php");
                 }
         }else{
     ?>

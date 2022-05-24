@@ -48,14 +48,12 @@ $(document).on("click", ".btnEditar", function(){
   nombre = fila.find('td:eq(1)').text();
   apellido = fila.find('td:eq(2)').text();
   curso = fila.find('td:eq(3)').text();
-  asignatura = fila.find('td:eq(4)').text();
-  correo = fila.find('td:eq(5)').text();
-  password = fila.find('td:eq(6)').text();
+  correo = fila.find('td:eq(4)').text();
+  password = fila.find('td:eq(5)').text();
   
   $("#nombre").val(nombre);
   $("#apellido").val(apellido);
-  $("#curso").val(curso); 
-  $("#asignatura").val(asignatura);
+  $("#curso").val(curso);
   $("#correo").val(correo);
   $("#password").val(password);
 
@@ -90,7 +88,6 @@ $("#formUsuarios").submit(function(e){
   nombre = $.trim($("#nombre").val());
   apellido = $.trim($("#apellido").val());
   curso = $.trim($("#curso").val());
-  asignatura = $.trim($("#asignatura").val());
   correo= $.trim($("#correo").val());   
   password = $.trim($("#password").val());
   $.ajax({
@@ -100,7 +97,6 @@ $("#formUsuarios").submit(function(e){
       data: {nombre:nombre,
              apellido:apellido,
              curso:curso,
-            asignatura:asignatura,
              correo:correo,
              password:password,
              id:id,
@@ -110,11 +106,10 @@ $("#formUsuarios").submit(function(e){
           nombre = data[0].nombre;
           apellido = data[0].apellido; 
           curso = data[0].curso_imparte;
-          asignatura = data[0].asignatura;
           correo= data[0].correo;
           password = data[0].password;
-          if(opcion == 1){tablaUsuarios.row.add([id,nombre,apellido,curso,asignatura,correo,password]).draw();}
-          else{tablaUsuarios.row(fila).data([id,nombre,apellido,curso,asignatura,correo,password]).draw();}            
+          if(opcion == 1){tablaUsuarios.row.add([id,nombre,apellido,curso,correo,password]).draw();}
+          else{tablaUsuarios.row(fila).data([id,nombre,apellido,curso,correo,password]).draw();}            
       }        
   });
   $("#modalCRUD").modal("hide");    

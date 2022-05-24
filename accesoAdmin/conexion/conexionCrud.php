@@ -10,7 +10,6 @@ $nombre=(isset($_POST['nombre']))?$_POST['nombre']:'';
 $apellido=(isset($_POST['apellido']))?$_POST['apellido']:'';
 $curso=(isset($_POST['curso']))?$_POST['curso']:'';
 $correo=(isset($_POST['correo']))?$_POST['correo']:'';
-$asignatura=(isset($_POST['asignatura']))?$_POST['asignatura']:'';
 $password=(isset($_POST['password']))?$_POST['password']:'';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
@@ -18,14 +17,14 @@ $usuario=$nombre.".".$apellido;
 $hasheado=Password::hash($password);
 switch($opcion){
     case 1:
-        $conexion->insertarProfesor($nombre,$apellido,$curso,$asignatura,$correo,$password,$usuario);//password sin hashear
+        $conexion->insertarProfesor($nombre,$apellido,$curso,$correo,$password,$usuario);//password sin hashear
         $conexion->insertarUsuario($nombre,$usuario,$hasheado);
-        $conexion->insertarAsignatura($curso,$asignatura);
         enviar_correo_profesor($correo,$usuario,$password);
+        
         $datos=$conexion->tablaProfesores();
         break;
     case 2:
-        $conexion->editar($nombre,$apellido,$curso,$asignatura,$correo,$password,$usuario,$id);
+        $conexion->editar($nombre,$apellido,$curso,$correo,$password,$usuario,$id);
         $datos=$conexion->mostrarEditar($id);
         break;
     case 3:

@@ -116,8 +116,11 @@
                          <li><a class="nav-link" href="./accesoAlumno/inicio.php"><?php echo $_SESSION['usuario'] ?> </a> </li>
             <?php
                          }
+                         if(isset($_SESSION['profesor'])){?>
+                          <li><a class="nav-link" href="./accesoProfesor/inicio.php"><?php echo $_SESSION['usuario'] ?> </a> </li>
+            <?php }
             }
-            ?>
+           ?>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

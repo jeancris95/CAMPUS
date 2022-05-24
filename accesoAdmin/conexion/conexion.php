@@ -33,16 +33,15 @@
                     }
             }
             //inserta los profesores en la tabla profesores
-                public function insertarProfesor($nombre,$apellido,$curso,$asignatura,$correo,$password,$usuario){
-                    $consulta=$this->conex->prepare("insert into profesores(nombre,apellido,curso_imparte,asignatura,correo,password,usuario)
-                                                    values (?,?,?,?,?,?,?)");
+                public function insertarProfesor($nombre,$apellido,$curso,$correo,$password,$usuario){
+                    $consulta=$this->conex->prepare("insert into profesores(nombre,apellido,curso_imparte,correo,password,usuario)
+                                                    values (?,?,?,?,?,?)");
                                 $consulta->bindParam(1,$nombre);
                                 $consulta->bindParam(2,$apellido);
                                 $consulta->bindParam(3,$curso);
-                                $consulta->bindParam(4,$asignatura);
-                                $consulta->bindParam(5,$correo);
-                                $consulta->bindParam(6,$password);
-                                $consulta->bindParam(7,$usuario);
+                                $consulta->bindParam(4,$correo);
+                                $consulta->bindParam(5,$password);
+                                $consulta->bindParam(6,$usuario);
                                 $consulta ->execute();
                  }
             //inserta los profesores en la tabla usuarios
@@ -54,16 +53,15 @@
                             $consulta ->execute();
              }
 
-                 public function editar($nombre,$apellido,$curso,$asignatura,$correo,$password,$usuario,$id){
-                    $consulta=$this->conex->prepare("update profesores set nombre= ?,apellido=?,curso_imparte=?,asignatura=?,correo=?,password=?,usuario=? where id=? ");
+                 public function editar($nombre,$apellido,$curso,$correo,$password,$usuario,$id){
+                    $consulta=$this->conex->prepare("update profesores set nombre= ?,apellido=?,curso_imparte=?,correo=?,password=?,usuario=? where id=? ");
                     $consulta->bindParam(1,$nombre);
                     $consulta->bindParam(2,$apellido);
                     $consulta->bindParam(3,$curso);
-                    $consulta->bindParam(4,$asignatura);
-                    $consulta->bindParam(5,$correo);
-                    $consulta->bindParam(6,$password);
-                    $consulta->bindParam(7,$usuario);
-                    $consulta->bindParam(8,$id);
+                    $consulta->bindParam(4,$correo);
+                    $consulta->bindParam(5,$password);
+                    $consulta->bindParam(6,$usuario);
+                    $consulta->bindParam(7,$id);
                   
                     $consulta ->execute();
                 }
@@ -142,12 +140,6 @@
                     return false;
                 }  
          }
-         public function insertarAsignatura($curso,$asignatura){
-            $consulta=$this->conex->prepare("insert into cursoAsignatura(curso,asignatura)values (?,?)");
-            $consulta->bindParam(1,$curso);
-            $consulta->bindParam(2,$asignatura);
-            $consulta->execute();
-         }
-           
+        
   }
 ?>
