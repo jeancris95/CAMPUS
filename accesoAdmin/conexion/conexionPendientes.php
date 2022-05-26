@@ -49,12 +49,13 @@
                         return false;
                     }
                 }
-                public function aniadirUsuario($name,$user,$pass,$rol){
-                    $consulta=$this->conex->prepare("insert into usuarios(name,username,password,rol)values (?,?,?,?)");
+                public function aniadirUsuario($name,$user,$dni,$pass,$rol){
+                    $consulta=$this->conex->prepare("insert into usuarios(name,username,dni,password,rol)values (?,?,?,?,?)");
                     $consulta->bindParam(1,$name);
                     $consulta->bindParam(2,$user);
-                    $consulta->bindParam(3,$pass);
-                    $consulta->bindParam(4,$rol);
+                    $consulta->bindParam(3,$dni);
+                    $consulta->bindParam(4,$pass);
+                    $consulta->bindParam(5,$rol);
                     $consulta ->execute();
                 }
                 public function consultaCurso($curso){

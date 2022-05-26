@@ -63,9 +63,9 @@
                             $errores["usuario_erroneo"]="usuario erroneo";
                         }
                             break;
-                    case "profesores":
-                        if($conexion->existeProfesor($usuario,$roll)){
-                            $resultado=$conexion->existeProfesor($usuario,$roll);
+                    case "profesor":
+                        if($conexion->existeUsuario($usuario,$roll)){
+                            $resultado=$conexion->existeUsuario($usuario,$roll);
                             if(!Password::verify($pass,$resultado[0]["password"])){
                                 $errores["pass_erronea"]="contraseña incorrecta";
                             }
@@ -73,7 +73,6 @@
                             $errores["usuario_erroneo"]="usuario erroneo";
                         }
                             break;
-                         break;
                 }
             }
         }
@@ -96,7 +95,7 @@
                         $_SESSION['usuario']=$usuario;
                         $_SESSION['user_id']=$id[0]["user_id"];
                         $_SESSION['profesor']=$roll;
-                        header("location:./accesoProfesor/inicio.php");
+                    header("location:./accesoProfesor/inicio.php"); 
                 }
         }else{
     ?>

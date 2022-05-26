@@ -18,6 +18,6 @@ $nombre_completo=$nombre_profesor[0]['nombre']." ".$nombre_profesor[0]['apellido
 $conexion->darAlta($alta,$dni);
 enviar_correo_alumno($datos[0]['correo'],$datos[0]['usuario']);
 $rol="alumno";
-$conexion->aniadirUsuario($datos[0]['nombre'],$datos[0]['usuario'],$datos[0]['password'],$rol);
+$conexion->aniadirUsuario($datos[0]['nombre'],$datos[0]['usuario'],$datos[0]['dni'],$datos[0]['password'],$rol);
 $conexion->insertarAlumno($nombreCurso,$nombre_completo,$nombreApellido);
 ?>

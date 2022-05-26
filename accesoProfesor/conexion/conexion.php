@@ -61,6 +61,41 @@
                         return false;
                     }
                 }
+                public function campoDNI($usuario){
+                    $consulta=$this->conex->prepare("select dni from usuarios where username=?");
+                    $consulta->bindParam(1,$usuario);
+                    $consulta ->execute();
+                    if($consulta){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
+                    
+                }
+                public function campoCurso($dni){
+                    $consulta=$this->conex->prepare("select curso from alumnos where dni=?");
+                    $consulta->bindParam(1,$dni);
+                    $consulta ->execute();
+                    if($consulta){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
+                    
+                }
+                public function mostrar($curso){
+                    $consulta=$this->conex->prepare("select * from archivos_profesores where curso=?");
+                    $consulta->bindParam(1,$curso);
+                    $consulta ->execute();
+                    if($consulta){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
+                    }else{
+                        return false;
+                    }
+                }
   }
 ?>
 

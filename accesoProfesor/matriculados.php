@@ -81,6 +81,20 @@
                     <span>Apuntes</span>
                 </a>
             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="avisos.php">
+                    <i class="fa-solid fa-person"></i>
+                    <span>Avisos</span>
+                </a>
+            </li>
+            
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="./chat_general/chatGeneral.php">
+                    <i class="fa-solid fa-person"></i>
+                    <span>Chat General</span>
+                </a>
+            </li>
  
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

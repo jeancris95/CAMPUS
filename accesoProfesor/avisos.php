@@ -1,8 +1,5 @@
 <?php
  session_start();
- include_once("./conexion/conexion.php");
- $conexion=ConectaDB::singleton();
- $archivos=$conexion->archivosProf();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,13 +13,11 @@
     <link rel="shortcut icon" href="./img/CAMPUS.png">
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
     <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
+    <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 </head>
 
 <body id="page-top">
@@ -79,19 +74,20 @@
                     <span>Apuntes</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="avisos.php">
                     <i class="fa-solid fa-person"></i>
                     <span>Avisos</span>
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="./chat_general/chatGeneral.php">
                     <i class="fa-solid fa-person"></i>
                     <span>Chat General</span>
                 </a>
             </li>
- 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -217,84 +213,12 @@
                     </ul>
     </nav>
 <!-- codigo -->
-<?php
-    
-?>
-<div class="container">
-    <h1>subida de archivos </h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">            
-            <button id="btnAniadir" type="button" class="btn btn-info float-right" data-toggle="modal"><i class="material-icons ">library_add</i></button>    
-            </div>    
-        </div>    
-    </div>   
-    <br> 
-<div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive">
-                    <table id="tablaArchivos" class="table table-striped table-bordered table-condensed" style="width:100%">
-                        <thead class="text-center">
-                        <tr>
-                                <th scope="col">CURSO</th>
-                                <th scope="col">TITULO</th>
-                                <th scope="col">ARCHIVO</th>
-                                <th scope="col">ACCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php                            
-                            foreach($archivos as $key) {                                                        
-                            ?>
-                            <tr>
-                                <td><?php echo $key['curso'] ?></td>
-                                <td><?php echo $key['titulo'] ?></td>
-                                <td><?php echo $key['archivo'] ?></td>
-                                <td></td>
-                            </tr>
-                            <?php
-                                }
-                            ?>                       
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <form id="formUsuarios" enctype="multipart/form-data">    
-            <div class="modal-body">
-                <div class="form-group">
-                <label for="titulo" class="col-form-label">Titulo</label>
-                <input type="text" class="form-control" id="titulo" name="titulo">
-                </div>                
-                <div class="form-group">
-                <label for="archivo" class="form-label">File</label>
-                <input type="file" class="form-control" id="archivo" name="archivo">
-                </div> 
-                <input type="hidden" name="usuario" id ="usuario" value="<?php echo $usuario?>">
-                <input type="hidden" name="id" id="id" value="<?php echo $id?>">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
-            </div>
-           
-        </form>    
-        </div>
-    </div>
-</div>  
-</div>
 
-<!-- fin -->
+
+
+
+<!-- fin codigo -->
+
 </div>
 
             <footer class="sticky-footer bg-white">
@@ -318,7 +242,7 @@
     <!-- Custom scripts for all pages-->
     <script src="./js/sb-admin-2.min.js"></script>
     <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
-    <script src="./subidaArchivoProfesor.js"></script>
+    <script src=""></script>
 </body>
 
 </html>

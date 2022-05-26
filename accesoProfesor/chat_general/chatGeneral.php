@@ -1,5 +1,9 @@
 <?php
  session_start();
+if (isset($_SESSION['usuario'])) {
+	include "./database/conexion.php";
+	$conexion=ConectaDB::singleton();
+	$chats=$conexion->chat();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,13 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>alumno</title>
-    <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <title>Profesor</title>
+    <link rel="stylesheet" href="../css/sb-admin-2.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
-    <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
+    <link rel="stylesheet" href="./estilosChatGeneral.css"> 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
 </head>
 
@@ -23,7 +25,7 @@
     <?php
            
             if($_SESSION['usuario']==null){
-                header("location:../index.php"); 
+                header("location:../../index.php"); 
             }
     ?>
     <!-- Page Wrapper -->
@@ -32,13 +34,13 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
+            <!-- Sidebar - Brand -->    
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <!-- Aqui ira el Nombre del Administrador -->
-                <div class="sidebar-brand-text mx-3">Alumno</div>
+                <div class="sidebar-brand-text mx-3">Profesor</div>
             </a>
 
             <!-- Divider -->
@@ -46,7 +48,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="../index.php">
+                <a class="nav-link" href="../../index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -59,34 +61,34 @@
                 Interface
             </div>
 
+            <!-- Nav Item - Pages Collapse Menu -->
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="asignatura.php">
+                <a class="nav-link collapsed" href="../matriculados.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>Asignatura</span>
+                    <span>Matriculados</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="notas.php">
+                <a class="nav-link collapsed" href="../notas.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>Notas</span>
+                    <span>Apuntes</span>
                 </a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link collapsed" href="chat_general/chatGeneral.php">
+                <a class="nav-link collapsed" href="../avisos.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>Chat Global</span>
+                    <span>Avisos</span>
                 </a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link collapsed" href="./subidaArchivo.php">
+                <a class="nav-link collapsed" href="./chatGeneral.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>Subir apuntos de apoyo</span>
+                    <span>Chat General</span>
                 </a>
             </li>
+ 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -195,14 +197,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php  echo $_SESSION['usuario'] ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="./img/undraw_profile.svg">
+                                    src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                       
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="../cierreSesion.php" >
+                                <a class="dropdown-item" href="../../cierreSesion.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -210,76 +212,93 @@
                         </li>
 
                     </ul>
-    </nav>
-                <!-- acordeon de asignaturas matriculadas -->
-              <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Programacion
-                      </button>
-                    </h5>
-                  </div>
 
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </nav>
+
+<div class="m-0 row justify-content-center">
+	<div class="container">
+
+			<h2 class="titulo">Bienvenid@ <span style=" font-weight: 600;" class="msg"><?php echo $_SESSION['usuario']; ?> </span> a Nuestro Chat Global</h2>
+		</br>
+		<div class="display-chat" id="display-chat">
+			<?php
+			if ($conexion->chatsPrevios()) {
+				foreach ($chats as $key => $value) {
+				?>
+						<div class="message">
+							<p>
+								<span class="msg"><?php echo $value['name']; ?> :</span>
+								<?php echo $value['message']; ?>
+							</p>
+						</div>
+					<?php
+					}
+			} else {
+				?>
+				<div class="message">
+					<p>
+						No hay ninguna conversación previa.
+					</p>
+				</div>
+			<?php
+			}
+			?>
+
+		</div>
+
+		<form class="form-horizontal" method="post" id="enviar" >
+			<div class="form-group">
+				<div class="col-sm-9">
+					<textarea name="msg" class="form-control" style="border: ridge 2px #56abf1;color: #000;" placeholder="Ingrese su Mensaje" id="mensaje"></textarea>
+				</div>
+				<br>
+				<div class="col-sm-3">
+					<button type="submit" class="btn btn-primary" style="font-size: 22px;">Enviar</button>
+				</div>
+
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <img src="./../img/CAMPUS.png" width=100 alt="">
                     </div>
-                  </div>
                 </div>
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                    <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <!-- End of Main Content -->
-            </div>
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <img src="./../img/CAMPUS.png" width=100 alt="">
+            </footer>
+    
+
         </div>
-    </div>
-</footer>
-</div>
-</div>
-<a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
-</a>
 
-<!-- Bootstrap core JavaScript-->
-<script src="./vendor/jquery/jquery.min.js"></script>
-<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="./js/sb-admin-2.min.js"></script>
-<script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
+
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="../vendor/datatables/datatables.min.js"></script>
+    <script src="./envio.js"></script>
+    <script>
+		$(document).ready(function() {
+                $('#display-chat').scrollTop( $('#display-chat').prop('scrollHeight') ); 
+			});
+	</script>
 </body>
 
 </html>
+<?php
+} else {
+	header('location:../../index.php');
+}
+?>

@@ -1,3 +1,14 @@
+<?php
+ session_start();
+ include_once("../accesoProfesor/conexion/conexion.php");
+ $conexion=ConectaDB::singleton();
+//mandar el campo de la asignatura
+/* $curso=$conexion->campoCurso($_SESSION['usuario']); con esto saco el dni para ver el curso al que pertenece */
+$dni=$conexion->campoDNI($_SESSION['usuario']);
+$arraycurso= $conexion->campoCurso($dni[0]['dni']);
+$curso=$arraycurso[0]['curso'];
+ $archivos=$conexion->mostrar($curso);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,10 +18,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>alumno</title>
-    <link rel="stylesheet" href="css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="./css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
+    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
+    <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
 </head>
 
 <body id="page-top">
@@ -40,7 +56,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/portada/accesoAdmin/inicio.php">
+                <a class="nav-link" href="../index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -53,23 +69,11 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="../inicio.php">
-                    <i class="fa-solid fa-person"></i>
-                    <span>Horario</span>
-                </a>
-            </li>
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="../inicio.php">
-                    <i class="fa-solid fa-person"></i>
-                    <span>Asignatura</span>
-                </a>
-            </li>
+
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../inicio.php">
+                <a class="nav-link collapsed" href="notas.php">
                     <i class="fa-solid fa-person"></i>
                     <span>Notas</span>
                 </a>
@@ -83,16 +87,16 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../inicio.php">
+                <a class="nav-link collapsed" href="./subidaArchivo.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>chat privado</span>
+                    <span>Subir apuntos de apoyo</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../inicio.php">
+                <a class="nav-link collapsed" href="./apuntesProfesor.php">
                     <i class="fa-solid fa-person"></i>
-                    <span>Subir apuntos de apoyo</span>
+                    <span>Apuntes profesor</span>
                 </a>
             </li>
             <!-- Divider -->
@@ -203,14 +207,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php  echo $_SESSION['usuario'] ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="./img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                       
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/portada/accesoAdmin/cierreSesion.php" >
+                                <a class="dropdown-item" href="../cierreSesion.php" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -218,34 +222,66 @@
                         </li>
 
                     </ul>
+    </nav>
+<!-- codigo -->
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table id="tablaArchivos" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <thead class="text-center">
+                        <tr>
+                                <th scope="col">CURSO</th>
+                                <th scope="col">TITULO</th>
+                                <th scope="col">ARCHIVO</th>
+                                <th scope="col">ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php                            
+                            foreach($archivos as $key) {                                                        
+                            ?>
+                            <tr>
+                                <td><?php echo $key['curso'] ?></td>
+                                <td><?php echo $key['titulo'] ?></td>
+                                <td><?php echo $key['archivo'] ?></td>
+                                <td></td>
+                            </tr>
+                            <?php
+                                }
+                            ?>                       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+     </div>
+</div>
+<!-- fin codigo -->
 
-                </nav>
-    </div>
+</div>
 
-<footer class="sticky-footer bg-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <img src="./../img/CAMPUS.png" width=100 alt="">
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <img src="./../img/CAMPUS.png" width=100 alt="">
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-</footer>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="./js/sb-admin-2.min.js"></script>
+    <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
+    <script src="descargar.js"></script>
+</body>
 
-</div>
-
-
-</div>
-
-<a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
-<script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
-
+</html>

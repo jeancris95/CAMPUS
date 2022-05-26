@@ -68,12 +68,7 @@ $variable=$conexion->mostrarArchivos();
             <!-- Nav Item - Pages Collapse Menu -->
     
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="asignatura.php">
-                    <i class="fa-solid fa-person"></i>
-                    <span>Asignatura</span>
-                </a>
-            </li>
+         
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="notas.php">
@@ -96,7 +91,15 @@ $variable=$conexion->mostrarArchivos();
                     <i class="fa-solid fa-person"></i>
                     <span>Subir apuntos de apoyo</span>
                 </a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="./apuntesProfesor.php">
+                    <i class="fa-solid fa-person"></i>
+                    <span>Apuntes profesor</span>
+                </a>
             </li>
+
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
