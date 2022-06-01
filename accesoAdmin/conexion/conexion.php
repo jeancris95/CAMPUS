@@ -2,7 +2,7 @@
             class ConectaDB{
                 private $conex ; private static $instancia;
                 private function __construct(){
-                    $this->conex=new PDO("mysql:host=localhost; dbname=alumnos",'root','');
+                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'root','');
                 }
                 public static function singleton(){ //método singleton que crea instancia sí no está creada
                     if (!isset(self::$instancia)) {
@@ -24,7 +24,7 @@
                         }
                 }
                 public function tablaProfesoresTotal(){ 
-                    $consulta=$this->conex->prepare("select * from profesores");
+                    $consulta=$this->conex->prepare("select id,nombre,apellido,curso_imparte,correo,password from profesores");
                     if( $consulta->execute()){
                         $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
                         return $datos;
@@ -33,35 +33,39 @@
                     }
             }
             //inserta los profesores en la tabla profesores
-                public function insertarProfesor($nombre,$apellido,$curso,$correo,$password,$usuario){
-                    $consulta=$this->conex->prepare("insert into profesores(nombre,apellido,curso_imparte,correo,password,usuario)
-                                                    values (?,?,?,?,?,?)");
+                public function insertarProfesor($nombre,$apellido,$dni,$curso,$correo,$password,$usuario){
+                    $consulta=$this->conex->prepare("insert into profesores(nombre,apellido,dni,curso_imparte,correo,password,usuario)
+                                                    values (?,?,?,?,?,?,?)");
                                 $consulta->bindParam(1,$nombre);
                                 $consulta->bindParam(2,$apellido);
-                                $consulta->bindParam(3,$curso);
-                                $consulta->bindParam(4,$correo);
-                                $consulta->bindParam(5,$password);
-                                $consulta->bindParam(6,$usuario);
+                                $consulta->bindParam(3,$dni);
+                                $consulta->bindParam(4,$curso);
+                                $consulta->bindParam(5,$correo);
+                                $consulta->bindParam(6,$password);
+                                $consulta->bindParam(7,$usuario);
                                 $consulta ->execute();
                  }
             //inserta los profesores en la tabla usuarios
-            public function insertarUsuario($name,$usuario,$password){
-                $consulta=$this->conex->prepare("insert into usuarios(name,username,password,rol)values (?,?,?,'profesor')");
+            public function insertarUsuario($name,$usuario,$correo,$dni,$password){
+                $consulta=$this->conex->prepare("insert into usuarios(name,username,correo,dni,password,rol)values (?,?,?,?,?,'profesor')");
                             $consulta->bindParam(1,$name);
                             $consulta->bindParam(2,$usuario);
-                            $consulta->bindParam(3,$password);
+                            $consulta->bindParam(3,$correo);
+                            $consulta->bindParam(4,$dni);
+                            $consulta->bindParam(5,$password);
                             $consulta ->execute();
              }
 
-                 public function editar($nombre,$apellido,$curso,$correo,$password,$usuario,$id){
-                    $consulta=$this->conex->prepare("update profesores set nombre= ?,apellido=?,curso_imparte=?,correo=?,password=?,usuario=? where id=? ");
+                 public function editar($nombre,$apellido,$curso,$dni,$correo,$password,$usuario,$id){
+                    $consulta=$this->conex->prepare("update profesores set nombre= ?,apellido=?,curso_imparte=?,dni=?,correo=?,password=?,usuario=? where id=? ");
                     $consulta->bindParam(1,$nombre);
                     $consulta->bindParam(2,$apellido);
                     $consulta->bindParam(3,$curso);
-                    $consulta->bindParam(4,$correo);
-                    $consulta->bindParam(5,$password);
-                    $consulta->bindParam(6,$usuario);
-                    $consulta->bindParam(7,$id);
+                    $consulta->bindParam(4,$dni);
+                    $consulta->bindParam(5,$correo);
+                    $consulta->bindParam(6,$password);
+                    $consulta->bindParam(7,$usuario);
+                    $consulta->bindParam(8,$id);
                   
                     $consulta ->execute();
                 }

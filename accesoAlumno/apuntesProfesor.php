@@ -1,6 +1,6 @@
 <?php
  session_start();
- include_once("../accesoProfesor/conexion/conexion.php");
+ include_once("./conexion/conexion.php");
  $conexion=ConectaDB::singleton();
 //mandar el campo de la asignatura
 /* $curso=$conexion->campoCurso($_SESSION['usuario']); con esto saco el dni para ver el curso al que pertenece */

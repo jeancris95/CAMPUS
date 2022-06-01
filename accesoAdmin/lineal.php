@@ -1,5 +1,9 @@
 <?php
   require_once("./conexion/conexion.php");
+  session_start();
+            if($_SESSION['usuario']==null){
+                header("location:../index.php"); 
+            }
   $conecta=ConectaDB::singleton(); 
   $alumnosAlta=$conecta->dadosAlta();
   $totalProfes=$conecta->totalProfes();

@@ -1,5 +1,9 @@
 <?php
  session_start();
+ include_once("./conexion/conexion.php");
+ $conexion=ConectaDB::singleton();
+$datos=$conexion->consultarDatos($_SESSION['usuario']);
+$allDate=$conexion->allDate($datos[0]['dni']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +21,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
     <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/estilo_perfil.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 
 <body id="page-top">
@@ -164,6 +170,37 @@
                     </ul>
     </nav>
 <!-- codigo -->
+<section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+                    <img src="./img/undraw_profile.svg" alt="img-avatar">
+                    <button type="button" class="boton-avatar">
+                        <i class="far fa-image"></i>
+                    </button>
+                </div>
+                <button type="button" class="boton-portada">
+                    <i class="far fa-image"></i> Cambiar fondo
+                </button>
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo"><?php echo$datos[0]['name']?></h3>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="bi bi-person-circle"></i></i> Nombre y apellido :  <?php echo $datos[0]['name']." ".$allDate[0]["apellido"];?></li>
+                    <li><i class="bi bi-telephone"></i> Telefono : <?php echo $allDate[0]['telefono'];?></li> </li>
+                    <li><i class="bi bi-book"></i> Curso : <?php echo $allDate[0]['curso'];?> </li>
+                    <li><i class="bi bi-telephone"></i> email: <?php echo $datos[0]['correo'];?> </li>
+                    <li><i class="bi bi-key"></i> Password :***** </li>
+                </ul>
+            </div>
+            <button class="btn btn-warning">cambiar contraseña</button>
+        </div>
+    </section>
+    <!--====  End of html  ====-->
 
 <!-- fin codigo -->
 

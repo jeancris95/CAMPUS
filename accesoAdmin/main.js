@@ -48,12 +48,14 @@ $(document).on("click", ".btnEditar", function(){
   nombre = fila.find('td:eq(1)').text();
   apellido = fila.find('td:eq(2)').text();
   curso = fila.find('td:eq(3)').text();
-  correo = fila.find('td:eq(4)').text();
-  password = fila.find('td:eq(5)').text();
+  dni=fila.find('td:eq(4)').text();
+  correo = fila.find('td:eq(5)').text();
+  password = fila.find('td:eq(6)').text();
   
   $("#nombre").val(nombre);
   $("#apellido").val(apellido);
-  $("#curso").val(curso);
+  $("#curso").val(curso); 
+  $("#dni").val(dni);
   $("#correo").val(correo);
   $("#password").val(password);
 
@@ -87,9 +89,11 @@ $("#formUsuarios").submit(function(e){
   e.preventDefault();    
   nombre = $.trim($("#nombre").val());
   apellido = $.trim($("#apellido").val());
+  dni= $.trim($("#dni").val());
   curso = $.trim($("#curso").val());
   correo= $.trim($("#correo").val());   
   password = $.trim($("#password").val());
+  if(nombre!='' && apellido !='' && dni!='' && curso !='' && correo !=''&& password!=''){
   $.ajax({
       url: "./conexion/conexionCrud.php",
       type: "POST",
@@ -97,6 +101,7 @@ $("#formUsuarios").submit(function(e){
       data: {nombre:nombre,
              apellido:apellido,
              curso:curso,
+             dni:dni,
              correo:correo,
              password:password,
              id:id,
@@ -110,8 +115,12 @@ $("#formUsuarios").submit(function(e){
           password = data[0].password;
           if(opcion == 1){tablaUsuarios.row.add([id,nombre,apellido,curso,correo,password]).draw();}
           else{tablaUsuarios.row(fila).data([id,nombre,apellido,curso,correo,password]).draw();}            
-      }        
+      }       
   });
+
+}else{
+  alert("tienes que rellenar todos los campos");
+}
   $("#modalCRUD").modal("hide");    
 });  
 

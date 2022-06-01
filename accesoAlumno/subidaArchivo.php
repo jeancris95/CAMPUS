@@ -2,7 +2,7 @@
 session_start();
 $usuario=$_SESSION["usuario"];
 $id=$_SESSION["user_id"];
-include_once("../conexiones/conexionArchivos.php");
+include_once("./conexion/conexion.php");
 $conexion=ConectaDB::singleton();
 $variable=$conexion->mostrarArchivos();
 ?>

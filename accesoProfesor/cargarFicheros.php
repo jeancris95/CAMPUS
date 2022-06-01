@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexiones/conexion.php");
+include_once("./conexion/conexion.php");
 $conexion=ConectaDB::singleton();
 if(isset($_FILES['archivo']) && $_POST['titulo']!=''){  
     $archivo =$_FILES["archivo"]["name"];//nombre del archivo

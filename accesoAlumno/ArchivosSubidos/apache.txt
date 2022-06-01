@@ -1,0 +1,42 @@
+htpasswd -c usuarios jean creamos el archivo jean luego para añadir a un usuario lo creamos con
+hhtpasswd  usuarios cristhofer . todo esto lo hacemos desde c:/xamp/apache/bin 
+
+para indicar al servidor pache que recursos tiene restringido , una opion es crear un fichero oculto 
+.htaccess en el cual pondriamos las directivas que querramos . 
+
+docker info 
+docker run -name=
+docker run -d ---> ejecuta un daemon
+docker run -p:8081:80    ----->abre puertos
+docker run -v  /local:/etc/conf     -------->para mapear las carpetas del contenedor
+docker run imageh:tag   ---->crea la imagen 
+docker container ps
+docker container ps -a
+docker images 
+docker container inspect <id>   te daba informacion que es lo que se se esta ejecutando como volomunes compartidos y que contenedor se esta usando
+docker container stop <id>
+docker container start <id>  
+docker container rm -f <id> elimina el contenedor 
+docker container exec <id> cmd --->ejecuta un comando 
+docker container -it exec <id> /bin/bash entras a la maquina virtual . 
+docker logs ---->
+docker stats ---->muestra las estadisticas
+docker system prune -a   elimina cualquier contenedor que no este en uso
+
+
+instalacion nginx
+docker run -d --name primer-nginx -v test:/usr/share/nginx/html -d -p 8080:80 nginx
+
+pasos a seguir : 
+docker build --tag jueves_py .
+docker run -p 8000:5000 --name ju -d  jueves_py
+
+
+docker run --rm -d -v mysql:/var/lib/mysql \
+  -v mysql_config:/etc/mysql -p 3306:3306 \
+  --network mysqlnet \
+  --name mysqldb \
+  -e MYSQL_ROOT_PASSWORD=p@ssw0rd1 \
+  mysql
+
+nicolaka/netshoot imagen linux

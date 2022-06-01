@@ -41,7 +41,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -76,18 +76,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="notas.php">
+                <a class="nav-link collapsed" href="apuntes.php">
                     <i class="fa-solid fa-person"></i>
                     <span>Apuntes</span>
                 </a>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="avisos.php">
-                    <i class="fa-solid fa-person"></i>
-                    <span>Avisos</span>
-                </a>
-            </li>
+        
             
              <li class="nav-item">
                 <a class="nav-link collapsed" href="./chat_general/chatGeneral.php">

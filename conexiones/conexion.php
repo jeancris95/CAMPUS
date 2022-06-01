@@ -3,7 +3,7 @@
             class ConectaDB{
                 private $conex ; private static $instancia;
                 private function __construct(){
-                    $this->conex=new PDO("mysql:host=localhost; dbname=alumnos",'root','');
+                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'root','');
                 }
                 public static function singleton(){ //método singleton que crea instancia sí no está creada
                     if (!isset(self::$instancia)) {
@@ -24,24 +24,6 @@
                         return false;
                     }
                  }
-                 public function insertarArchivos($nombre,$titulo,$archivo){
-                        $consulta=$this->conex->prepare("insert into archivos(name,titulo,archivo)
-                                                        values (?,?,?)");
-                                    $consulta->bindParam(1,$nombre);
-                                    $consulta->bindParam(2,$titulo);
-                                    $consulta->bindParam(3,$archivo);
-                                    $consulta ->execute();
-                 }
-                 public function insertarArchivosProfesor($curso,$titulo,$archivo){
-                    $consulta=$this->conex->prepare("insert into archivos_profesores(curso,titulo,archivo)
-                                                    values (?,?,?)");
-                                $consulta->bindParam(1,$curso);
-                                $consulta->bindParam(2,$titulo);
-                                $consulta->bindParam(3,$archivo);
-                                $consulta ->execute();
-             }
-
-
                  public function consultarID($nombre,$titulo,$archivo){
                     $consulta=$this->conex->prepare("select user_id from archivos where name=? and titulo=? and archivo=?");
                     $consulta->bindParam(1,$nombre);
@@ -76,14 +58,12 @@
                     $consulta->bindParam(1,$id);
                      $consulta->execute();
                  }
-
-                 public function consultarCurso($nombre,$apellido){
-                    $consulta=$this->conex->prepare("select curso_imparte from profesores where nombre=? and apellido=?");
-                    $consulta->bindParam(1,$nombre);
-                    $consulta->bindParam(2,$apellido);
-                    if( $consulta->execute()){
-                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
-                        return $datos;
+                 public function recuperarPass($correo){
+                    $consulta=$this->conex->prepare("select * from usuarios where correo=?");
+                    $consulta->bindParam(1,$correo);
+                    $consulta->execute();
+                    if( $consulta->rowCount()>0){
+                        return true;
                     }else{
                         return false;
                     }

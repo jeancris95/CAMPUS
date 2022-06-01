@@ -33,7 +33,7 @@
     <?php
             session_start();
             if($_SESSION['usuario']==null){
-                header("location:/portada/index.php"); 
+                header("location:../index.php"); 
             }
     ?>
     <!-- Page Wrapper -->
@@ -96,7 +96,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Registros</h6>
-                        <a class="collapse-item" href="/portada/accesoAdmin/RegistrosProfesores.php">Todos los profesores</a>
+                        <a class="collapse-item" href="./RegistrosProfesores.php">Todos los profesores</a>
                     </div>
                 </div>
             </li>
@@ -303,6 +303,10 @@
                 <div class="form-group">
                 <label for="curso" class="col-form-label">Curso</label>
                 <input type="text" class="form-control" id="curso">
+                </div> 
+                <div class="form-group">
+                <label for="dni" class="col-form-label">DNI</label>
+                <input type="text" class="form-control" id="dni">
                 </div> 
                 <div class="form-group">
                 <label for="correo" class="col-form-label">Correo</label>

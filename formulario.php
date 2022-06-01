@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio Sesion</title>
    <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
     <style>
         body{
@@ -106,8 +107,7 @@
             </div>
             <div class="col bg-white p-5 rounded-end">
                 <div class="text-end">
-                <a href="index.php"><i class="bi bi-arrow-left-square-fill"></i></a>
-                        <img src="./accesoAlumno/img/CAMPUS.png" width="48" alt="">
+                <a href="./index.php"><img src="./accesoAlumno/img/CAMPUS.png" width="48" alt=""></a>
                 </div>
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
                 <!-- login -->

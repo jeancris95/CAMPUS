@@ -1,4 +1,8 @@
 <?php
+session_start();
+if($_SESSION['usuario']==null){
+    header("location:../index.php"); 
+}
     include_once("./conexion/conexion.php");
     $conexion=ConectaDB::singleton();
     $id=$_POST['id'];

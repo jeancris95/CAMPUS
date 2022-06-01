@@ -29,7 +29,7 @@
     <?php
             session_start();
             if($_SESSION['usuario']==null){
-                header("location:/portada/index.php"); 
+                header("location:../index.php"); 
             }
     ?>
     <!-- Page Wrapper -->
