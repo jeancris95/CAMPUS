@@ -28,17 +28,10 @@ $(document).ready(function(){
         $("#formUsuarios").trigger("reset");
         $(".modal-header").css("background-color", "#28a745");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Nueva Persona");            
+        $(".modal-title").text("Nueva Archivo");            
         $("#modal").modal("show");        
     }); 
 //una vez que se le da al submit
-$("#btnAniadir").click(function(){
-    $("#formUsuarios").trigger("reset");
-    $(".modal-header").css("background-color", "#28a745");
-    $(".modal-header").css("color", "white");
-    $(".modal-title").text("Nueva Persona");            
-    $("#modal").modal("show");        
-}); 
 
  $(document).on("click", ".btnBorrar", function(){    
     fila = $(this);
@@ -69,6 +62,12 @@ $("#btnAniadir").click(function(){
     window.location.href = ruta+archivo;
   });
 
+  $("#cerrar").click(function(){
+    $("#modal").modal("hide"); 
+  });
+  $("#cerrar1").click(function(){
+    $("#modal").modal("hide"); 
+  });
 //una vez que se le da al submit
 $("#formUsuarios").submit(function(e){
 e.preventDefault();    

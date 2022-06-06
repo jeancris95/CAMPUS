@@ -261,7 +261,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="cerrar1">&times;</span>
                 </button>
             </div>
         <form id="formUsuarios" enctype="multipart/form-data">    
@@ -278,7 +278,7 @@
                 <input type="hidden" name="id" id="id" value="<?php echo $id?>">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                <button id="cerrar" type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
             </div>
            

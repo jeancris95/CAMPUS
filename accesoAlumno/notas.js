@@ -19,7 +19,6 @@ $(document).ready(function(){
    /*  console.log (document.getElementsByClassName("btn-danger")[1].id);  */
     for (let index = 1; index < botones+1; index++) {
         $('#boton'+index).click(function(){  
-        console.log( $('#nota'+index).val());
           id=$('#nota'+index).val();
             $.ajax({
                 url: "./eliminar_post.php",

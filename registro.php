@@ -76,11 +76,10 @@
     }
     if($_SERVER['REQUEST_METHOD'] != "GET" and empty($errores)){
         $curso=$_POST['curso'];
-        $anio=$_POST['anio'];
         $usuario=$name.".".$surname;
 
         $hasheoPass=Password::hash($pass);
-          if($conexion->aniadir_Registro($name,$surname,$usuario,$dni,$mail,$telephone,$curso,$anio,$hasheoPass)){
+          if($conexion->aniadir_Registro($name,$surname,$usuario,$dni,$mail,$telephone,$curso,$hasheoPass)){
               ?>
               <h1> Introducido correctamente en la BD espere a que sea dado de alta </h1>
               <?php
@@ -152,21 +151,6 @@
                 ?>>SMR</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="anio" >año</label>
-                <select name="anio" id="anio" class="form-control">
-                    <option value="1"  <?php
-                    if(isset($_POST['anio']) and $_POST['anio']=="1"){
-                    echo "Selected";
-                         }
-                ?>>1</option>
-                    <option value="2"  <?php
-                    if(isset($_POST['anio']) and $_POST['anio']=="2"){
-                    echo "Selected";
-                         }
-                ?>>2</option>
-                </select>
-            </div> 
             <div class="clearfix"></div>
             <div class="form-group">
                 <input type="submit" value="enviar" class="btn btn-primary btn-lg btn-responsive" id="enviar">

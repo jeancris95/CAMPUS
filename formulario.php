@@ -97,6 +97,7 @@
                         $_SESSION['user_id']=$id[0]["user_id"];
                         $_SESSION['profesor']=$roll;
                     header("location:./accesoProfesor/inicio.php"); 
+                    break;
                 }
         }else{
     ?>

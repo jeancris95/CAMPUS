@@ -1,0 +1,2 @@
+create table roles (id_rol int NOT NULL AUTO_INCREMENT, nombre varchar(100),grupo varchar(100),descripcion varchar(100),estado varchar(10),PRIMARY KEY(id_rol));
+alter table usuario add (apellidos VARCHAR(100),usuario VARCHAR(100));

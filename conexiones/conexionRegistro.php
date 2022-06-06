@@ -14,10 +14,10 @@
                 public function __clone(){  // Evita que el objeto se pueda clonar
                     trigger_error('La clonación de este objeto no está permitida', E_USER_ERROR);
                  }
-                public function aniadir_registro($nombre,$apellido,$usuario,$dni,$correo,$telefono,$curso,$anio,$pass){
+                public function aniadir_registro($nombre,$apellido,$usuario,$dni,$correo,$telefono,$curso,$pass){
                   
-                    $consulta=$this->conex->prepare("insert into alumnos(nombre,apellido,usuario,dni,correo,telefono,curso,anio,alta,password,fecha_registro)
-                                                     values (?,?,?,?,?,?,?,?,'no',?,CURDATE())");
+                    $consulta=$this->conex->prepare("insert into alumnos(nombre,apellido,usuario,dni,correo,telefono,curso,alta,password,fecha_registro)
+                                                     values (?,?,?,?,?,?,?,'no',?,CURDATE())");
                     $consulta->bindParam(1,$nombre);
                     $consulta->bindParam(2,$apellido);
                     $consulta->bindParam(3,$usuario);
@@ -25,8 +25,7 @@
                     $consulta->bindParam(5,$correo);
                     $consulta->bindParam(6,$telefono);
                     $consulta->bindParam(7,$curso);
-                    $consulta->bindParam(8,$anio);
-                    $consulta->bindParam(9,$pass);
+                    $consulta->bindParam(8,$pass);
                     if($consulta ->execute()){
                         return true;
                     }else{
