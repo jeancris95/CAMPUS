@@ -15,9 +15,9 @@
     <title>Profesor</title>
     <link rel="shortcut icon" href="./img/CAMPUS.png">
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
+    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/datatables.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
@@ -305,13 +305,13 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../recursos/jquery/jquery.min.js"></script>
+    <script src="../recursos/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../recursos/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="./js/sb-admin-2.min.js"></script>
-    <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../recursos/datatables.min.js"></script>
     <script src="./subidaArchivoProfesor.js"></script>
 </body>
 

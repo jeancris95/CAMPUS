@@ -10,12 +10,11 @@ $allNotes=$conexion->consultar_notas($_SESSION['usuario']);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <link href="./img/CAMPUS.png" rel="icon">
     <title>alumno</title>
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/datatables.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
     <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
@@ -36,7 +35,7 @@ $allNotes=$conexion->consultar_notas($_SESSION['usuario']);
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="inicio.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -240,13 +239,14 @@ $allNotes=$conexion->consultar_notas($_SESSION['usuario']);
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../recursos/jquery/jquery.min.js"></script>
+    <script src="../recursos/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../recursos/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="./js/sb-admin-2.min.js"></script>
-    <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../recursos/datatables.min.js"></script>
+
     <script src="./notas.js"></script>
 </body>
 

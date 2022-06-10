@@ -1,7 +1,7 @@
 <?php
  session_start();?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -199,7 +199,7 @@
         <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="bi bi-people"></i></i></div>
+              <div class="icon"><i class="bi bi-people"></i></div>
               <h4 class="title"><a href="">Comunicacion</a></h4>
               <p class="description">Resuelve todas tus dudas con los profesores o con tus propios compañeros .</p>
             </div>

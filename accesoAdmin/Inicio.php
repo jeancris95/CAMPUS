@@ -6,21 +6,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="./img/CAMPUS.png" rel="icon">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>ADMIN</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../recursos/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="./plotly-2.11.1.min.js"></script>  
-    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
-
+    <link rel="stylesheet" href="../recursos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/datatables.min.css">
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
 
 </head>
@@ -37,33 +37,41 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <!-- Aqui ira el Nombre del Administrador -->
-                <div class="sidebar-brand-text mx-3">Admin</div>
-            </a>
-
+        <li>
+            
+                    <!-- Sidebar - Brand -->
+                    
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
+                        <div class="sidebar-brand-icon rotate-n-15">
+                            <i class="fas fa-laugh-wink"></i>
+                        </div>
+                        <!-- Aqui ira el Nombre del Administrador -->
+                        <div class="sidebar-brand-text mx-3">Admin</div>
+                    </a>
+                    <hr class="sidebar-divider my-0">
+        </li>
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="inicio.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Inicio</span></a>
+                    <span>Inicio</span></a>  
+                     <hr class="sidebar-divider">
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+         
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <li>
+                   <div class="sidebar-heading">
                 Interface
             </div>
+            </li>
+
+         
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -88,22 +96,25 @@
                     <i class="fa-solid fa-person-chalkboard"></i>
                     <span>Profesores</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Registros</h6>
                         <a class="collapse-item" href="./RegistrosProfesores.php">Todos los profesores</a>
                     </div>
-                </div>
+                </div> 
+                <hr class="sidebar-divider d-none d-md-block">
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+           
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+    
+               <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div> 
+          
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -169,8 +180,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <div class="small text-gray-500">Alerta1</div>
+                                        <span class="font-weight-bold">Prueba 1</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -180,8 +191,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        $290.29 has been deposited into your account!
+                                        <div class="small text-gray-500">Alerta 2</div>
+                                        Prueba 2
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -191,8 +202,8 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
+                                        <div class="small text-gray-500">Alerta 3</div>
+                                       Prueba 3.
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
@@ -206,7 +217,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php  echo $_SESSION['usuario'] ?></span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="img/undraw_profile.svg" alt="perfil">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -223,7 +234,7 @@
                     </ul>
 
                 </nav>
-
+</div>
 <!-- contenido principal -->
 <div class="container">
     <h1>Area del Administrador</h1>
@@ -264,20 +275,20 @@
     </a>
 
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../recursos/jquery/jquery.min.js"></script>
+    <script src="../recursos/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../recursos/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-    <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
+    <script src="../recursos/datatables.min.js"></script>
 
-<script type="text/javascript" src="./tablaAlumnosAlta.js"></script>
+    <script  src="./tablaAlumnosAlta.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#cargaBarras').load('./lineal.php');
+        });
+</script>
 </body>
 
 </html>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#cargaBarras').load('./lineal.php');
-    });
-</script>

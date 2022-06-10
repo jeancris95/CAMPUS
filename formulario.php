@@ -108,7 +108,7 @@
             </div>
             <div class="col bg-white p-5 rounded-end">
                 <div class="text-end">
-                <a href="./index.php"><img src="./accesoAlumno/img/CAMPUS.png" width="48" alt=""></a>
+                <a href="./index.php"><img src="./accesoAlumno/img/CAMPUS.png" width="48" alt="logo"></a>
                 </div>
                 <h2 class="fw-bold text-center py-5">Bienvenido</h2>
                 <!-- login -->
@@ -147,16 +147,16 @@
                                 ?>
                     </div>
                     <div class="mb-4">
-                    <label class="form-label" for="Roll">Roll</label>
+                    <label class="form-label" for="roll">Roll</label>
                     <select name="roll" id="roll" class="form-control">
                         <option value="alumno">Alumno</option>
                         <option value="profesor" >Profesor</option>
                         <option value="administrador" selected>Administrador</option>
                     </select>
                     </div>
-                    <d class="d-grid">
+                    <div class="d-grid">
                         <button type="submit" class="btn btn-primary" id="boton">Iniciar Sesion</button>
-                    </d>
+                    </div>
 
                     <div class="my-3">
                         <span>No tienes cuenta ? <a href="registro.php">Registrate</a></span><br>
@@ -175,7 +175,7 @@
                                 <button class="btn btn-outline-primary w-100  my-1">
                                         <div class="row align-items-center">
                                                     <div class="col-2 d-none d-md-block">
-                                                        <img src="./img/facebook.png" width="32"alt="">
+                                                        <img src="./img/facebook.png" width="32" alt="facebook">
                                                     </div>
                                                     <div class="col-12 col-md-10 text-center ">
                                                         Facebook
@@ -187,7 +187,7 @@
                             <button class="btn btn-outline-danger w-100 my-1">
                                         <div class="row align-items-center">
                                                     <div class="col-2 d-none d-md-block">
-                                                        <img src="./img/google.png" width="32"alt="">
+                                                        <img src="./img/google.png" width="32" alt="google">
                                                     </div>
                                                     <div class="col-12 col-md-10 text-center ">
                                                         Google

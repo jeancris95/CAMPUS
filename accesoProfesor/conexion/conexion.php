@@ -81,6 +81,26 @@
                     return false;
                 }
              }
+             public function consultarDatos($username){
+                $consulta=$this->conex->prepare("select * from usuarios where username=?");
+                $consulta->bindParam(1,$username);
+                if( $consulta->execute()){
+                    $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                    return $datos;
+                }else{
+                    return false;
+                }
+             }
+             public function allDate($dni){
+                $consulta=$this->conex->prepare("select * from profesores where dni=?");
+                $consulta->bindParam(1,$dni);
+                if( $consulta->execute()){
+                    $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                    return $datos;
+                }else{
+                    return false;
+                }
+             } 
   }
 ?>
 

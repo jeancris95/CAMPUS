@@ -1,5 +1,9 @@
 <?php
  session_start();
+ include_once("./conexion/conexion.php");
+ $conexion=ConectaDB::singleton();
+$datos=$conexion->consultarDatos($_SESSION['usuario']);
+$allDate=$conexion->allDate($datos[0]['dni']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,11 +16,12 @@
     <title>Profesor</title>
     <link rel="shortcut icon" href="./img/CAMPUS.png">
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/datatables.min.css">
-    <link rel="stylesheet" href="./vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/datatables.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
     <link rel="stylesheet" href="./chat_general/estilosChatGeneral.css"> 
+    <link rel="stylesheet" href="../accesoAlumno/css/estilo_perfil.css">
     <script src="https://kit.fontawesome.com/753c2dc8d2.js" crossorigin="anonymous"></script>
 </head>
 
@@ -207,7 +212,36 @@
                     </ul>
     </nav>
 <!-- codigo -->
-
+<section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <div class="perfil-usuario-avatar">
+                    <img src="./img/undraw_profile.svg" alt="img-avatar">
+                    <button type="button" class="boton-avatar">
+                        <i class="far fa-image"></i>
+                    </button>
+                </div>
+                <button type="button" class="boton-portada">
+                    <i class="far fa-image"></i> Cambiar fondo
+                </button>
+            </div>
+        </div>
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo"><?php echo$datos[0]['name']?></h3>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="bi bi-person-circle"></i></i> Nombre y apellido :  <?php echo $datos[0]['name']." ".$allDate[0]["apellido"];?></li>
+                    <li><i class="bi bi-telephone"></i> Usuario : <?php echo $allDate[0]['usuario'];?></li> </li>
+                    <li><i class="bi bi-book"></i> Curso que imparte : <?php echo $allDate[0]['curso_imparte'];?> </li>
+                    <li><i class="bi bi-telephone"></i> email: <?php echo $datos[0]['correo'];?> </li>
+                    <li><i class="bi bi-key"></i> Password :***** </li>
+                </ul>
+            </div>
+            <button class="btn btn-warning">cambiar contraseña</button>
+        </div>
+    </section>
 <!-- fin codigo -->
 
 </div>
@@ -226,13 +260,13 @@
     </a>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="./vendor/jquery/jquery.min.js"></script>
-    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../recursos/jquery/jquery.min.js"></script>
+    <script src="../recursos/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../recursos/jquery-easing/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="./js/sb-admin-2.min.js"></script>
-    <script type="text/javascript" src="./vendor/datatables/datatables.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../recursos/datatables.min.js"></script>
     <script src=""></script>
 </body>
 
