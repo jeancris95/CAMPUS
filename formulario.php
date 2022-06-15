@@ -8,11 +8,13 @@
    <script src="./assets/vendor/bootstrap/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
    <link rel="stylesheet" href="./assets/vendor/bootstrap/css/bootstrap.min.css">
+   <meta name="google-signin-client_id" content="58387390855-indvlcv89q89f215jtismcd1spmvmve3.apps.googleusercontent.com">
     <style>
         body{
             background:#641c34;
             background:linear-gradient(to right,#ffa751,#641c34);
         }
+   
         .bg{
             background-image:url(./img/programacion.jpg);
             background-position:center center;    
@@ -20,6 +22,7 @@
         .ocultoUsuario,.ocultoPass{
                 color:red;
         }
+   
     </style>
 </head>
 <body>
@@ -184,9 +187,9 @@
                                 </button>
                             </div>
                             <div class="col">
-                            <button class="btn btn-outline-danger w-100 my-1">
-                                        <div class="row align-items-center">
-                                                    <div class="col-2 d-none d-md-block">
+                            <button class="btn btn-outline-danger w-100 my-1" data-onsuccess="onSignIn">
+                                        <div class="row align-items-center my-1 g-signin2" >
+                                                    <div class="col-2 d-none d-md-block ">
                                                         <img src="./img/google.png" width="32" alt="google">
                                                     </div>
                                                     <div class="col-12 col-md-10 text-center ">
@@ -204,6 +207,11 @@
     <?php
         }
     ?>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="./signin.js"></script>
 </body>
 </html>

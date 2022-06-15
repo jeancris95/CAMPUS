@@ -2,7 +2,7 @@
             class ConectaDB{
                 private $conex ; private static $instancia;
                 private function __construct(){
-                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'root','');
+                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'profesor','1234');
                 }
                 public static function singleton(){ //método singleton que crea instancia sí no está creada
                     if (!isset(self::$instancia)) {

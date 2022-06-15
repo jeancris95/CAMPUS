@@ -9,11 +9,11 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.mail.yahoo.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'areadetrabajoinformatico@yahoo.com';                     //SMTP username
-    $mail->Password   = 'zjrmeehagejuezpc';                               //SMTP password
+    $mail->Username   = 'campusdaw@yahoo.com';                     //SMTP username
+    $mail->Password   = 'rzkflrylxyicqjfg';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-    $mail->setFrom('areadetrabajoinformatico@yahoo.com');
+    $mail->setFrom('campusdaw@yahoo.com');
     $mail->addAddress($correo);     //Add a recipient
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Dado de alta correctamente';
@@ -23,6 +23,7 @@ try {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 }
+
 function enviar_correo_alumno($correo,$usuario){
     $mail = new PHPMailer(true);
     try {
@@ -30,11 +31,11 @@ function enviar_correo_alumno($correo,$usuario){
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.mail.yahoo.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'areadetrabajoinformatico@yahoo.com';                     //SMTP username
-        $mail->Password   = 'zjrmeehagejuezpc';                               //SMTP password
+        $mail->Username   = 'campusdaw@yahoo.com';                     //SMTP username
+        $mail->Password   = 'rzkflrylxyicqjfg';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-        $mail->setFrom('areadetrabajoinformatico@yahoo.com');
+        $mail->setFrom('campusdaw@yahoo.com');
         $mail->addAddress($correo);     //Add a recipient
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML

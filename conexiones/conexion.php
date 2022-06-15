@@ -3,7 +3,7 @@
             class ConectaDB{
                 private $conex ; private static $instancia;
                 private function __construct(){
-                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'root','');
+                    $this->conex=new PDO("mysql:host=localhost; dbname=campus",'administrador','1234');
                 }
                 public static function singleton(){ //método singleton que crea instancia sí no está creada
                     if (!isset(self::$instancia)) {
@@ -64,6 +64,17 @@
                     $consulta->execute();
                     if( $consulta->rowCount()>0){
                         return true;
+                    }else{
+                        return false;
+                    }
+                 }
+                 public function passwordAleatorio($password,$dni){
+                    $consulta=$this->conex->prepare("update usuarios set password =? where dni=?");
+                    $consulta->bindParam(1,$password);
+                    $consulta->bindParam(2,$dni);
+                    if( $consulta->execute()){
+                        $datos=$consulta->fetchAll(PDO::FETCH_ASSOC);
+                        return $datos;
                     }else{
                         return false;
                     }

@@ -38,6 +38,10 @@
 	                </ol>
 	            </div>
 	            <div class="card mt-5">
+					<div class="card-body">
+	                    <div class="form-group"> <label for="dni">Inserte su DNI</label> <input class="form-control" type="text" id="dni"></div>
+						<p id="comprobacion1" class="nada">El campo DNI no puede estar vacio</p>
+					</div>
 	                <div class="card-body">
 	                    <div class="form-group"> <label for="email-for-pass">Introduzca su correo electronico</label> <input class="form-control" type="text" id="email-for-pass"></div>
 						<p id="comprobacion" class="nada">El campo Correo Electronico no puede estar vacio</p>
@@ -48,7 +52,7 @@
 	        </div>
 	    </div>
 	</div>
-<script src="./accesoAdmin/vendor/jquery/jquery.min.js"></script>
+<script src="./recursos/jquery/jquery.min.js"></script>
 <script src="comprobacion.js"></script>
 </body>
 </html>

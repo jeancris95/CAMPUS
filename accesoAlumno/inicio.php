@@ -14,7 +14,7 @@ $allDate=$conexion->allDate($datos[0]['dni']);
     <link href="./img/CAMPUS.png" rel="icon">
     <title>alumno</title>
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../recursos/datatables.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"> 
@@ -195,8 +195,44 @@ $allDate=$conexion->allDate($datos[0]['dni']);
                     <li><i class="bi bi-telephone"></i> email: <?php echo $datos[0]['correo'];?> </li>
                     <li><i class="bi bi-key"></i> Password :***** </li>
                 </ul>
+          </div>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+            Cambiar Contraseña
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="formP">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="passAntigua">Password Antigua</label>
+                        <input type="text" name="passAntigua" id="passAntigua">
+                    </div>
+                    <div class="form-group">
+                        <label for="passNueva">Password Nueva</label>
+                        <input type="password" name="passNueva" id="passNueva">
+                    </div>
+                    <div style="margin-top:15px;" class="form-group">
+                        <label for="mostrar_contrasena">Mostrar contraseña</label>
+                        <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña">
+                    </div>          
+                </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="guardar">Guardar Cambios</button>
+                </div>
+                </div>
             </div>
-            <button class="btn btn-warning">cambiar contraseña</button>
+            </div>
         </div>
     </section>
     <!--====  End of html  ====-->
@@ -226,7 +262,7 @@ $allDate=$conexion->allDate($datos[0]['dni']);
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script src="../recursos/datatables.min.js"></script>
-
+    <script src="./cambiopass.js"></script>
 </body>
 
 </html>

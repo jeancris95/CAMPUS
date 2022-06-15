@@ -68,7 +68,7 @@ $("#formUsuarios").submit(function(e){
 e.preventDefault();    
 var formData=new FormData($("#formUsuarios")[0]);
 $.ajax({
-    url: "./CargarFicheros.php",
+    url: "./cargarFicheros.php",
     type: "POST",
     contentType: false,
     processData: false,

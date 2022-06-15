@@ -108,7 +108,7 @@
                 ?>
                  <li><a class="nav-link" href="./cierreSesion.php">Log Out </a> </li>
                  <?php if(isset($_SESSION['adm'])){ ?>
-                        <li><a class="nav-link" href="./accesoAdmin/Inicio.php"><?php echo $_SESSION['usuario'] ?> </a> </li>
+                        <li><a class="nav-link" href="./accesoAdmin/inicio.php"><?php echo $_SESSION['usuario'] ?> </a> </li>
                 <?php } 
                          if(isset($_SESSION['alumno'])){?>
                          <li><a class="nav-link" href="./accesoAlumno/inicio.php"><?php echo $_SESSION['usuario'] ?> </a> </li>

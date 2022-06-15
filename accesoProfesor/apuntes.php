@@ -10,12 +10,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
     <title>Profesor</title>
     <link rel="shortcut icon" href="./img/CAMPUS.png">
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../recursos/datatables.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -256,6 +255,9 @@
             </div>
         </div>
     </div>
+    <?php
+    echo $usuario;
+    ?>
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -274,8 +276,6 @@
                 <label for="archivo" class="form-label">File</label>
                 <input type="file" class="form-control" id="archivo" name="archivo">
                 </div> 
-                <input type="hidden" name="usuario" id ="usuario" value="<?php echo $usuario?>">
-                <input type="hidden" name="id" id="id" value="<?php echo $id?>">
             </div>
             <div class="modal-footer">
                 <button id="cerrar" type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>

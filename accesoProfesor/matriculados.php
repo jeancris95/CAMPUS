@@ -7,12 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>Profesor</title>
     <link rel="shortcut icon" href="./img/CAMPUS.png">
     <link rel="stylesheet" href="./css/sb-admin-2.min.css">
-    <link rel="stylesheet" href="../recusos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../recursos/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../recursos/datatables.min.css">
     <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
